@@ -5,16 +5,10 @@ $token = "7238360214:AAED9R27wBHgJVnU4nCw4LavUxrZ0L9gubA";
 $chat_id = "170195649";
 
 if ($_POST['act'] == 'order') {
-    $name = ($_POST['id']);
-    $phone = ($_POST['name']);
-    $email = ($_POST['price']);
-    $textarea = ($_POST['order']);
+    $product = ($_POST['id']);
 
     $arr = array(
-        'Имя:' => $name,
-        'Телефон:' => $phone,
-        'Почта' => $email,
-        'Текст' => $textarea
+        'Заказ:' => $product
     );
     foreach($arr as $key => $value) {
         $txt .= "<b>".$key."</b> ".$value."%0A";

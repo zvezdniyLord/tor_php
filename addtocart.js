@@ -295,7 +295,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       });
   }
 
-  document.querySelector('.get__offer').addEventListener('click', () => {
+  document.querySelector('.get__offer').addEventListener('submit', () => {
     sendCartItems();
   });
 });
