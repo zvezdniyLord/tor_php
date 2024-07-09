@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Боковая корзина</title>
+<style>
+    /* Стили для боковой корзины */
+    .cart-container {
+        position: fixed;
+        top: 0;
+        right: -300px; /* Боковая корзина изначально сдвинута за пределы экрана */
+        width: 300px;
+        height: 100%;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        transition: right 0.3s ease; /* Плавное анимированное появление/исчезновение */
+        z-index: 9999; /* Чтобы корзина была поверх других элементов */
+    }
+
+    /* Стили для кнопки открытия корзины */
+    .open-cart-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 9999; /* Чтобы кнопка была поверх других элементов */
+    }
+</style>
+</head>
+<body>
+
+<!-- Кнопка для открытия боковой корзины -->
+<button class="open-cart-btn" id="openCartBtn">Открыть корзину</button>
+
+<!-- Контейнер для боковой корзины -->
+<div class="cart-container" id="cartContainer">
+    <h2>Корзина</h2>
+    <ul id="cartItems">
+        <!-- Здесь будут отображаться добавленные продукты -->
+    </ul>
+    <button onclick="closeCart()" id="closeCartBtn">Закрыть корзину</button>
+</div>
+
+<script>
+    // Получаем ссылки на элементы
+    const openCartBtn = document.getElementById('openCartBtn');
+    const cartContainer = document.getElementById('cartContainer');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+
+    // Функция для открытия боковой корзины
+    function openCart() {
+        cartContainer.style.right = '0'; // Показываем корзину
+    }
+
+    // Функция для закрытия боковой корзины
+    function closeCart() {
+        cartContainer.style.right = '-300px'; // Скрываем корзину
+    }
+
+    // Добавляем обработчик события на кнопку открытия корзины
+    openCartBtn.addEventListener('click', openCart);
+</script>
+
+</body>
+</html>
