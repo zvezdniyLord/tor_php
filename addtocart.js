@@ -135,7 +135,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       price: item.price * item.quantity,
       quantity: item.quantity,
     }));
-    console.log(cartData)
 
     fetch('./send.php', {
       method: 'POST',
@@ -144,19 +143,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
       },
       body: JSON.stringify(cartData)
     })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   }
+  const inputData = document.querySelector('.input-data');
   document.querySelector('.get__offer').addEventListener('submit', () => {
-    sendCartItems();
+    dataToInput(cartItems, inputData)
   });
 });
-
 
 // search +add to cart
 
@@ -180,29 +179,16 @@ const json = [
   {id: 4, price: 4300, name: 'sushi', count: 41},
 ];
 
-const cartData = cartItems.map(item => ({
-  id: item.id,
-  name: item.name,
-  price: item.price * item.quantity,
-  quantity: item.quantity,
-}));
 
-const inputData = document.querySelector('.input-data');
-
-function dataToInput() {
+function dataToInput(data, input) {
   let result = ""
-  /*if(Array.isArray(data)) {
+  if(Array.isArray(data)) {
     data.forEach(d => {
       const str = JSON.stringify(d);
       result += str;
       input.value = result;
     })
-  }*/
-  const str = JSON.stringify(cartData);
-  result += str;
-  inputData.value = result;
+  }
   console.log(result);
   return result;
 }
-
-dataToInput();

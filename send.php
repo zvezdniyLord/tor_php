@@ -5,7 +5,7 @@ $token = "7238360214:AAED9R27wBHgJVnU4nCw4LavUxrZ0L9gubA";
 $chat_id = "170195649";
 
 if ($_POST['act'] == 'order') {
-    $product = ($_POST['id']);
+    $product = ($_POST['product']);
 
     $arr = array(
         'Заказ:' => $product
