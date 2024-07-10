@@ -1,9 +1,10 @@
-let cartItems = [];
+let orderArr = []
 document.addEventListener("DOMContentLoaded", (event) => {
   const data = new FormData(document.querySelector("form"));
   const inputPrice = document.querySelector(".input-price");
   const inputName = document.querySelector(".input-name");
   const inputOrder = document.querySelector(".input-order");
+  let cartItems = [];
 
   function removeFromCart(productId) {
     cartItems = cartItems.filter((item) => item.id !== productId);
@@ -103,6 +104,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
         productImage,
         productQuantity
       );
+      orderAdd(
+        productId,
+        productName,
+        productPrice,
+        productQuantity
+      );
+
     });
   });
 
@@ -127,14 +135,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
   document.querySelectorAll(".minus").forEach((button) => {
     button.addEventListener("click", decrease);
   });
-  let cartData
+
   function sendCartItems() {
-    cartData = cartItems.map(item => ({
+    const cartData = cartItems.map(item => ({
       id: item.id,
       name: item.name,
       price: item.price * item.quantity,
       quantity: item.quantity,
     }));
+    console.log(cartData)
 
     fetch('./send.php', {
       method: 'POST',
@@ -143,19 +152,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
       },
       body: JSON.stringify(cartData)
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Success:', data);
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   }
-  const inputData = document.querySelector('.input-data');
   document.querySelector('.get__offer').addEventListener('submit', () => {
-    dataToInput(cartData, inputData)
+    sendCartItems();
   });
 });
+
 
 // search +add to cart
 
@@ -178,6 +187,18 @@ const json = [
   {id: 3, price: 3200, name: 'sushi', count: 42},
   {id: 4, price: 4300, name: 'sushi', count: 41},
 ];
+const inputData = document.querySelector('.input-data');
+
+function orderAdd(productId, productName, productPrice, productQuantity) {
+  orderArr.push({
+    id: productId,
+    name: productName,
+    price: productPrice * productQuantity,
+    count: productQuantity,
+  });
+  return orderArr;
+}
+
 
 
 function dataToInput(data, input) {
@@ -192,3 +213,5 @@ function dataToInput(data, input) {
   console.log(result);
   return result;
 }
+
+dataToInput(orderArr, inputData);
