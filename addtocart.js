@@ -127,9 +127,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   document.querySelectorAll(".minus").forEach((button) => {
     button.addEventListener("click", decrease);
   });
-
+  let cartData
   function sendCartItems() {
-    const cartData = cartItems.map(item => ({
+    cartData = cartItems.map(item => ({
       id: item.id,
       name: item.name,
       price: item.price * item.quantity,
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   }
   const inputData = document.querySelector('.input-data');
   document.querySelector('.get__offer').addEventListener('submit', () => {
-    dataToInput(cartItems, inputData)
+    dataToInput(cartData, inputData)
   });
 });
 
