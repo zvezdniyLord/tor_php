@@ -6,10 +6,17 @@ $chat_id = "170195649";
 
 if ($_POST['act'] == 'order') {
     $product = ($_POST['product']);
+    $address = ($_POST['address']);
+    $tel = ($_POST['tel']);
+    $name = ($_POST['name']);
 
     $arr = array(
-        'Заказ:' => $product
+        'Имя:' => $name,
+        'Заказ:' => $product,
+        'Телефон:' => $tel,
+        'Адрес:' => $address
     );
+
     foreach($arr as $key => $value) {
         $txt .= "<b>".$key."</b> ".$value."%0A";
     };
