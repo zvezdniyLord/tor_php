@@ -181,12 +181,6 @@ document.querySelectorAll('.cat1__product').forEach(product => {
     products.push({ id: parseInt(id, 10), name, description, price, image });
 });
 
-const json = [
-  {id: 1, price: 300, name: 'sushi', count: 4},
-  {id: 2, price: 3010, name: 'sushi', count: 2},
-  {id: 3, price: 3200, name: 'sushi', count: 42},
-  {id: 4, price: 4300, name: 'sushi', count: 41},
-];
 const inputData = document.querySelector('.input-data');
 
 function orderAdd(productId, productName, productPrice, productQuantity) {
@@ -196,6 +190,7 @@ function orderAdd(productId, productName, productPrice, productQuantity) {
     price: productPrice * productQuantity,
     count: productQuantity,
   });
+  dataToInput(orderArr, inputData);
   return orderArr;
 }
 
@@ -213,5 +208,3 @@ function dataToInput(data, input) {
   console.log(result);
   return result;
 }
-
-dataToInput(orderArr, inputData);

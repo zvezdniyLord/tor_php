@@ -68,23 +68,23 @@
                     </div>
                     <div class="cart__container" id="cartContainer">
                         <h2>Корзина</h2>
-                        <form method="post" action="./send.php" id="zakaz">
+                        <form class="form" method="post" action="./send.php" id="zakaz">
                             <input class="input-data" type="hidden" name="product" value="">
                             <!--<input class="input-price" type="hidden" name="price" value="">
                             <input class="input-name" type="hidden" name="name" value="">
                             <input class="input-order" type="hidden" name="order" value="">-->
                             <input type="hidden" name="act" value="order">
-                            <input name="address" class="input-address" type="text" placeholder="Введите адрес">
-                            <input name="tel" class="input-tel" type="tel" placeholder="Введите телефон">
-                            <input name="name" class="input-name" type="text" placeholder="Ваше имя и фамилия">
+                            <input required name="address" class="input-form input-address" type="text" placeholder="Введите адрес">
+                            <input required name="tel" class="input-form input-tel" type="tel" placeholder="Введите телефон">
+                            <input required name="name" class="input-form input-name" type="text" placeholder="Ваше имя">
                             <ul id="cartItems">
                             </ul>
-                            <button id="submitCartButton" type="submit" class="get__offer">Оформить заказ</button>
+                            <div class="of__btns">
+                                <button class="closeCart" id="closeCartBtn">Закрыть корзину</button>
+                                <button id="submitCartButton" type="submit" class="get__offer">Оформить заказ</button>
+                            </div>
                         </form>
-                        <div class="of__btns">
-                            <button class="closeCart" id="closeCartBtn">Закрыть корзину</button>
 
-                        </div>
                     </div>
                 </div>
             </div>

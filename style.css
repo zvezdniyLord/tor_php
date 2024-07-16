@@ -1,9 +1,17 @@
-html {
+html, body, ul {
   scroll-behavior: smooth;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-  font-family: "Montserrat", sans-serif;
+img {
+  display: block;
+}
+
+button {
+  cursor: pointer;
 }
 
 .logo1 {
@@ -327,12 +335,13 @@ body {
   background-color: #e31d24;
   width: 160px;
   height: 40px;
+  font-weight: 700;
 }
 
 .of__btns {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .search-result-item {
@@ -379,7 +388,7 @@ body {
 }
 
 .cart__list {
-  width: 400px;
+  width: 428px;
   margin-top: 25px;
   list-style-type: none;
   display: flex;
@@ -464,6 +473,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: 100%;
 }
 
 .bold__catname {
@@ -577,13 +587,14 @@ body {
 }
 
 .del {
-  margin-left: 50px;
   border: none;
   border-radius: 80px;
   color: white;
   background-color: #e31d24;
   width: 100px;
   height: 40px;
+  font-weight: 700;
+  font-size: 12px;
 }
 
 .warning__desc {
@@ -602,6 +613,7 @@ body {
   background-color: #e31d24;
   width: 160px;
   height: 40px;
+  font-weight: 700;
 }
 
 .understand {
@@ -612,6 +624,26 @@ body {
   width: 160px;
   height: 40px;
 }
+
+.form {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-form {
+  max-width: 470px;
+  width: 400px;
+  height: 55px;
+  border-radius: 20px;
+  font-size: 1.125rem;
+  background-color: #f1f3f8;
+  padding: 0 0 0 2rem;
+  border: 0;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
 
 .popup__disable {}
 
@@ -679,7 +711,7 @@ body {
 }
 
 @media (max-width: 991px) {
-  flex__left {
+  .flex__left {
     width: 100%;
   }
 }
@@ -881,4 +913,32 @@ body {
     display: flex;
     justify-content: center;
   }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 460px) {
+  body {
+    max-width: 100%;
+  }
+  .categorys {
+    max-width: 100%;
+  }
+
+  .cat1__flex {
+    max-width: 100%;
+  }
+
+  .cat1__product {
+    max-width: 100%;
+  }
+
+  .cat__flex {
+    max-width: 100%;
+    margin-top: 85px;
+    height: 100%;
+  }
+
+  .product__image {
+    height: 170px;
+  }
+
 }
