@@ -188,7 +188,7 @@ document.querySelectorAll('.cat1__product').forEach(product => {
 
 const inputData = document.querySelector('.input-data');
 
-function orderAdd(productId, productName, productPrice, productQuantity) {
+/*function orderAdd(productId, productName, productPrice, productQuantity) {
   orderArr.push({
     id: productId,
     name: productName,
@@ -209,6 +209,50 @@ function dataToInput(data, input) {
       result += str;
       input.value = result;
     })
+  }
+  console.log(result);
+  return result;
+}*/
+function orderAdd(productId, productName, productPrice, productQuantity) {
+  orderArr.push({
+    id: productId,
+    name: productName,
+    price: productPrice,
+    count: productQuantity,
+    summ: productPrice * productQuantity,
+  });
+  addTotalToOrderArr(orderArr);
+  return orderArr;
+}
+
+function addTotalToOrderArr(orderArr) {
+  const totalIndex = orderArr.findIndex((item) => item.id === "total");
+  if (totalIndex !== -1) {
+    orderArr.splice(totalIndex, 1);
+  }
+  const totalSum = orderArr.reduce(
+    (total, item) => total + item.summ,
+    0
+  );
+  orderArr.push({
+    id: "total",
+    name: "Общая сумма",
+    price: totalSum,
+    count: 1,
+    summ: totalSum,
+  });
+  dataToInput(orderArr, inputData);
+  return orderArr;
+}
+function dataToInput(data, input) {
+  console.log(data, "data");
+  let result = "";
+  if (Array.isArray(data)) {
+    data.forEach((d) => {
+      const str = JSON.stringify(d);
+      result += str;
+      input.value = result;
+    });
   }
   console.log(result);
   return result;
