@@ -2,11 +2,15 @@
 
 $token = "7238360214:AAED9R27wBHgJVnU4nCw4LavUxrZ0L9gubA";
 
-$chat_id = "170195649";
+$chat_id = "-4288535116";
 
 if ($_POST['act'] == 'order') {
     $product = ($_POST['product']);
-    $address = ($_POST['address']);
+    $street = ($_POST['street']);
+    $home = ($_POST['home']);
+    $podhome = ($_POST['podhome']);
+    $levelhome = ($_POST['levelhome']);
+    $kvartira = ($_POST['kvartira']);
     $tel = ($_POST['tel']);
     $name = ($_POST['name']);
 
@@ -14,7 +18,11 @@ if ($_POST['act'] == 'order') {
         'Имя:' => $name,
         'Заказ:' => $product,
         'Телефон:' => $tel,
-        'Адрес:' => $address
+        'Улица:' => $street,
+        'Дом:' => $home,
+        'Подъезд:' => $podhome,
+        'Этаж:' => $levelhome,
+        'Квартира:' => $kvartira,
     );
 
     foreach($arr as $key => $value) {

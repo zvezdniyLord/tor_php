@@ -74,9 +74,15 @@
                             <input class="input-name" type="hidden" name="name" value="">
                             <input class="input-order" type="hidden" name="order" value="">-->
                             <input type="hidden" name="act" value="order">
-                            <input required name="address" class="input-form input-address" type="text" placeholder="Введите адрес">
+                            <input required name="street" class="input-form input-address" type="text" placeholder="Введите улицу *">
+                            <input required name="home" class="input-form input-address" type="text" placeholder="Введите дом *">
+                            <input name="podhome" class="input-form input-address" type="text" placeholder="Введите подъезд">
+                            <input name="levelhome" class="input-form input-address" type="text" placeholder="Введите этаж">
+                            <input required name="kvartira" class="input-form input-address" type="text" placeholder="Введите Кв-ра/Офис *">
                             <input required name="tel" class="input-form input-tel" type="tel" placeholder="Введите телефон">
                             <input required name="name" class="input-form input-name" type="text" placeholder="Ваше имя">
+                            <input class="input-form" required name="count_pers" placeholder="Количество персон" type="number">
+                            <input class="input-form" name="promokod" placeholder="Промокод" type="text">
                             <ul id="cartItems">
                             </ul>
                             <div class="of__btns">

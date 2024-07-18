@@ -1,4 +1,4 @@
-let orderArr = []
+let orderArr = [];
 document.addEventListener("DOMContentLoaded", (event) => {
   const data = new FormData(document.querySelector("form"));
   const inputPrice = document.querySelector(".input-price");
@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   function removeFromCart(productId) {
     cartItems = cartItems.filter((item) => item.id !== productId);
+    /*arrayData.map((arr, i) => {
+      if(arr.id === productId) {
+        arrayData.splice(i, 1);
+      }
+    })*/
     displayCartItems();
   }
 
@@ -195,7 +200,7 @@ function orderAdd(productId, productName, productPrice, productQuantity) {
 }
 
 
-
+console.log(orderArr);
 function dataToInput(data, input) {
   let result = ""
   if(Array.isArray(data)) {
