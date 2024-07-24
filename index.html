@@ -69,19 +69,25 @@
                     <div class="cart__container" id="cartContainer">
                         <h2>Корзина</h2>
                         <form class="form" method="post" action="./send.php" id="zakaz">
-                            <input class="input-data" type="hidden" name="product" value="">
                             <!--<input class="input-price" type="hidden" name="price" value="">
                             <input class="input-name" type="hidden" name="name" value="">
                             <input class="input-order" type="hidden" name="order" value="">-->
+                            <input class="input-data" type="hidden" name="product" value="">
                             <input type="hidden" name="act" value="order">
-                            <input required name="street" class="input-form input-address" type="text" placeholder="Введите улицу *">
-                            <input required name="home" class="input-form input-address" type="text" placeholder="Введите дом *">
-                            <input name="podhome" class="input-form input-address" type="text" placeholder="Введите подъезд">
-                            <input name="levelhome" class="input-form input-address" type="text" placeholder="Введите этаж">
-                            <input required name="kvartira" class="input-form input-address" type="text" placeholder="Введите Кв-ра/Офис *">
-                            <input required name="tel" class="input-form input-tel" type="tel" placeholder="Введите телефон">
-                            <input required name="name" class="input-form input-name" type="text" placeholder="Ваше имя">
-                            <input class="input-form" required name="count_pers" placeholder="Количество персон" type="number">
+                            <div class="flex-form">
+                                <div class="left-form">
+                                    <input required name="street" class="input-form input-address" type="text" placeholder="Введите улицу *">
+                                    <input required name="home" class="input-form input-address" type="text" placeholder="Введите дом *">
+                                    <input name="podhome" class="input-form input-address" type="text" placeholder="Введите подъезд">
+                                    <input name="levelhome" class="input-form input-address" type="text" placeholder="Введите этаж">
+                                </div>
+                                <div class="right-form">
+                                    <input required name="kvartira" class="input-form input-address" type="text" placeholder="Введите Кв-ра/Офис *">
+                                    <input required name="tel" class="input-form input-tel" type="tel" placeholder="Введите телефон">
+                                    <input required name="name" class="input-form input-name" type="text" placeholder="Ваше имя">
+                                    <input class="input-form" required name="count_pers" placeholder="Количество персон" type="number">
+                                </div>
+                            </div>
                             <input class="input-form" name="promokod" placeholder="Промокод" type="text">
                             <ul id="cartItems">
                             </ul>
@@ -97,16 +103,15 @@
         </div>
     </header>
 
-
     <div class="container">
         <div class="slider__position">
             <button class="prevbtn slidebtns" id="prev">
                 < </button>
                     <div class="slider">
                         <div class="slides">
-                            <div class="slide red">Слайд 1</div>
-                            <div class="slide green">Слайд 2</div>
-                            <div class="slide black">Слайд 3</div>
+                            <div class="slide "><img class="slide__img" src="img/akcii/dr.jfif" alt="" srcset=""></div>
+                            <div class="slide "><img class="slide__img" src="img/akcii/samovuvoz.jfif" alt="" srcset=""></div>
+                            <div class="slide "><img class="slide__img" src="img/akcii/wothousend.jfif" alt="" srcset=""></div>
                         </div>
                         <div class="nav-buttons">
                             <button class="nav-button" onclick="goToSlide(0)">
@@ -1703,7 +1708,7 @@
                     <div class="cat1__product" data-product-id="70">
                         <div class="cat__flex">
                             <div class="product__presentaition">
-                                <img src="" alt="testimg" class="product__image">
+                                <img src="img/napitki/frus__orange.jfif" alt="testimg" class="product__image">
                                 <div class="ads">
                                     <button class="minus">-</button>
                                     <p class="itog">1 </p>
@@ -1713,7 +1718,7 @@
                             </div>
                             <div class="product__desc">
                                 <div class="desc__name">
-                                    Кола </div>
+                                    Frustyle Апельсин </div>
                                 <div class="desc__text">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex consectetur
                                     similique, alias voluptate nihil asperiores. Sint repellendus harum, numquam dolorem
@@ -1728,7 +1733,7 @@
                     <div class="cat1__product" data-product-id="71">
                         <div class="cat__flex">
                             <div class="product__presentaition">
-                                <img src="" alt="testimg" class="product__image">
+                                <img src="img/napitki/frus_lime.jfif" alt="testimg" class="product__image">
                                 <div class="ads">
                                     <button class="minus">-</button>
                                     <p class="itog">1 </p>
@@ -1738,7 +1743,182 @@
                             </div>
                             <div class="product__desc">
                                 <div class="desc__name">
-                                    Сок </div>
+                                    Frustyle Лимон-Лайм </div>
+                                <div class="desc__text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex consectetur
+                                    similique, alias voluptate nihil asperiores. Sint repellendus harum, numquam dolorem
+                                    provident amet perferendis! Eum ipsam nobis vero tempora incidunt!
+                                    <br>
+                                    <p class="BGU"> ККал, белки , жиры, углеводы.</p>
+                                    <p class="cost__with__weight">398 R</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cat1__product" data-product-id="72">
+                        <div class="cat__flex">
+                            <div class="product__presentaition">
+                                <img src="img/napitki/liptom_lemon.jfif" alt="testimg" class="product__image">
+                                <div class="ads">
+                                    <button class="minus">-</button>
+                                    <p class="itog">1 </p>
+                                    <button class="plus">+</button>
+                                </div>
+                                <button class="add__to__cart">В корзину</button>
+                            </div>
+                            <div class="product__desc">
+                                <div class="desc__name">
+                                    Липтон чёрный </div>
+                                <div class="desc__text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex consectetur
+                                    similique, alias voluptate nihil asperiores. Sint repellendus harum, numquam dolorem
+                                    provident amet perferendis! Eum ipsam nobis vero tempora incidunt!
+                                    <br>
+                                    <p class="BGU"> ККал, белки , жиры, углеводы.</p>
+                                    <p class="cost__with__weight">398 R</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cat1__product" data-product-id="73">
+                        <div class="cat__flex">
+                            <div class="product__presentaition">
+                                <img src="img/napitki/lipton_green.jfif" alt="testimg" class="product__image">
+                                <div class="ads">
+                                    <button class="minus">-</button>
+                                    <p class="itog">1 </p>
+                                    <button class="plus">+</button>
+                                </div>
+                                <button class="add__to__cart">В корзину</button>
+                            </div>
+                            <div class="product__desc">
+                                <div class="desc__name">
+                                    Липтон зеленый </div>
+                                <div class="desc__text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex consectetur
+                                    similique, alias voluptate nihil asperiores. Sint repellendus harum, numquam dolorem
+                                    provident amet perferendis! Eum ipsam nobis vero tempora incidunt!
+                                    <br>
+                                    <p class="BGU"> ККал, белки , жиры, углеводы.</p>
+                                    <p class="cost__with__weight">398 R</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cat1__product" data-product-id="74">
+                        <div class="cat__flex">
+                            <div class="product__presentaition">
+                                <img src="img/napitki/aqua_gaz.jfif" alt="testimg" class="product__image">
+                                <div class="ads">
+                                    <button class="minus">-</button>
+                                    <p class="itog">1 </p>
+                                    <button class="plus">+</button>
+                                </div>
+                                <button class="add__to__cart">В корзину</button>
+                            </div>
+                            <div class="product__desc">
+                                <div class="desc__name">
+                                    Вода Aqua minerale газированная </div>
+                                <div class="desc__text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex consectetur
+                                    similique, alias voluptate nihil asperiores. Sint repellendus harum, numquam dolorem
+                                    provident amet perferendis! Eum ipsam nobis vero tempora incidunt!
+                                    <br>
+                                    <p class="BGU"> ККал, белки , жиры, углеводы.</p>
+                                    <p class="cost__with__weight">398 R</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cat1__product" data-product-id="75">
+                        <div class="cat__flex">
+                            <div class="product__presentaition">
+                                <img src="img/napitki/aqua_nogaz.jfif" alt="testimg" class="product__image">
+                                <div class="ads">
+                                    <button class="minus">-</button>
+                                    <p class="itog">1 </p>
+                                    <button class="plus">+</button>
+                                </div>
+                                <button class="add__to__cart">В корзину</button>
+                            </div>
+                            <div class="product__desc">
+                                <div class="desc__name">
+                                    Вода Aqua minerale негазированная </div>
+                                <div class="desc__text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex consectetur
+                                    similique, alias voluptate nihil asperiores. Sint repellendus harum, numquam dolorem
+                                    provident amet perferendis! Eum ipsam nobis vero tempora incidunt!
+                                    <br>
+                                    <p class="BGU"> ККал, белки , жиры, углеводы.</p>
+                                    <p class="cost__with__weight">398 R</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cat1__product" data-product-id="76">
+                        <div class="cat__flex">
+                            <div class="product__presentaition">
+                                <img src="img/napitki/lub_zemlznika.jfif" alt="testimg" class="product__image">
+                                <div class="ads">
+                                    <button class="minus">-</button>
+                                    <p class="itog">1 </p>
+                                    <button class="plus">+</button>
+                                </div>
+                                <button class="add__to__cart">В корзину</button>
+                            </div>
+                            <div class="product__desc">
+                                <div class="desc__name">
+                                    Сок Любимый Земляника 0.3 </div>
+                                <div class="desc__text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex consectetur
+                                    similique, alias voluptate nihil asperiores. Sint repellendus harum, numquam dolorem
+                                    provident amet perferendis! Eum ipsam nobis vero tempora incidunt!
+                                    <br>
+                                    <p class="BGU"> ККал, белки , жиры, углеводы.</p>
+                                    <p class="cost__with__weight">398 R</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cat1__product" data-product-id="77">
+                        <div class="cat__flex">
+                            <div class="product__presentaition">
+                                <img src="img/napitki/lub_apple.jfif" alt="testimg" class="product__image">
+                                <div class="ads">
+                                    <button class="minus">-</button>
+                                    <p class="itog">1 </p>
+                                    <button class="plus">+</button>
+                                </div>
+                                <button class="add__to__cart">В корзину</button>
+                            </div>
+                            <div class="product__desc">
+                                <div class="desc__name">
+                                    Сок Любимый Яблоко 0.3</div>
+                                <div class="desc__text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex consectetur
+                                    similique, alias voluptate nihil asperiores. Sint repellendus harum, numquam dolorem
+                                    provident amet perferendis! Eum ipsam nobis vero tempora incidunt!
+                                    <br>
+                                    <p class="BGU"> ККал, белки , жиры, углеводы.</p>
+                                    <p class="cost__with__weight">398 R</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cat1__product" data-product-id="78">
+                        <div class="cat__flex">
+                            <div class="product__presentaition">
+                                <img src="img/napitki/lub_cherry.jfif" alt="testimg" class="product__image">
+                                <div class="ads">
+                                    <button class="minus">-</button>
+                                    <p class="itog">1 </p>
+                                    <button class="plus">+</button>
+                                </div>
+                                <button class="add__to__cart">В корзину</button>
+                            </div>
+                            <div class="product__desc">
+                                <div class="desc__name">
+                                    Сок Любимый Вишневая черешня 0.3</div>
                                 <div class="desc__text">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex consectetur
                                     similique, alias voluptate nihil asperiores. Sint repellendus harum, numquam dolorem
@@ -1764,7 +1944,7 @@
                     <hr class="category__hr">
                 </div>
                 <div class="cat1__flex">
-                    <div class="cat1__product" data-product-id="72">
+                    <div class="cat1__product" data-product-id="79">
                         <div class="cat__flex">
                             <div class="product__presentaition">
                                 <img src="img/dops/imbir.jpg" alt="testimg" class="product__image">
@@ -1786,7 +1966,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cat1__product" data-product-id="73">
+                    <div class="cat1__product" data-product-id="80">
                         <div class="cat__flex">
                             <div class="product__presentaition">
                                 <img src="img/dops/soevuy.jpg" alt="testimg" class="product__image">
@@ -1809,7 +1989,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cat1__product" data-product-id="74">
+                    <div class="cat1__product" data-product-id="81">
                         <div class="cat__flex">
                             <div class="product__presentaition">
                                 <img src="img/dops/vasabi.jpg" alt="testimg" class="product__image">
@@ -1839,6 +2019,9 @@
             </div>
         </div>
     </section>
+    <footer class="footer">
+
+    </footer>
 
 
     <section class="popup popup__disable">

@@ -225,25 +225,29 @@ function orderAdd(productId, productName, productPrice, productQuantity) {
   return orderArr;
 }
 
-function addTotalToOrderArr(orderArr) {
-  const totalIndex = orderArr.findIndex((item) => item.id === "total");
-  if (totalIndex !== -1) {
-    orderArr.splice(totalIndex, 1);
+var discount = 0;
+const promoCodeInput = document.querySelector('input[name="promokod"]');
+function applyPromoCode() {
+  const promoCode = promoCodeInput.value.trim();
+  if (promoCode === "a") {
+    discount = 0.1; // 10% скидка
   }
-  const totalSum = orderArr.reduce(
-    (total, item) => total + item.summ,
-    0
-  );
+}
+
+function addTotalToOrderArr(orderArr) {
+  const totalSum = orderArr.reduce((total, item) => total + item.summ, 0);
+  const discountedTotalSum = totalSum * (1 - discount);
   orderArr.push({
     id: "total",
     name: "Общая сумма",
     price: totalSum,
     count: 1,
-    summ: totalSum,
+    СУММА: discountedTotalSum,
   });
   dataToInput(orderArr, inputData);
   return orderArr;
 }
+
 function dataToInput(data, input) {
   console.log(data, "data");
   let result = "";

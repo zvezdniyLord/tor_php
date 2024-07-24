@@ -45,12 +45,17 @@ button {
   transition: transform 0.5s ease;
 }
 
+
 .slide {
-  height: 600px;
-  width: 1000px;
+
   flex-shrink: 0;
   text-align: center;
 }
+.slide__img{
+  width: 1000px;
+  height: 600px;
+}
+
 
 .nav-buttons {
   display: flex;
@@ -65,6 +70,10 @@ button {
   padding: 5px;
   margin: 5px;
   border: none;
+}
+
+.footer{
+  height: 100px;
 }
 
 .nav-button.active {
@@ -212,7 +221,7 @@ button {
 }
 
 .contacts {
-  font: 15px Inter, sans-serif;
+  font-family: 15px Inter, sans-serif;
 }
 
 .contacts__geo {
@@ -628,12 +637,12 @@ button {
 .form {
   max-width: 100%;
   display: flex;
+  align-items: center;
   flex-direction: column;
 }
 
 .input-form {
-  max-width: 470px;
-  width: 400px;
+  max-width: 320px;
   height: 55px;
   border-radius: 20px;
   font-size: 1.125rem;
@@ -642,6 +651,11 @@ button {
   border: 0;
   margin-top: 1rem;
   cursor: pointer;
+}
+
+.flex-form {
+  display: flex;
+  margin-left: 2.5em;
 }
 
 
