@@ -48,29 +48,29 @@ document.addEventListener("DOMContentLoaded", (event) => {
       imageElement.classList.add("cartImg");
       listItem.appendChild(imageElement);
 
-
-
       const inputCount = document.createElement("input");
-      inputCount.setAttribute("type", 'hidden');
-      inputCount.setAttribute('name', 'name');
-      inputCount.setAttribute('value', `${item.quantity}`);
+      inputCount.setAttribute("type", "hidden");
+      inputCount.setAttribute("name", "name");
+      inputCount.setAttribute("value", `${item.quantity}`);
       listItem.appendChild(inputCount);
 
       const inputPrice = document.createElement("input");
-      inputPrice.setAttribute("type", 'hidden');
-      inputPrice.setAttribute('name', 'price');
-      inputPrice.setAttribute('value', `${item.price}`);
+      inputPrice.setAttribute("type", "hidden");
+      inputPrice.setAttribute("name", "price");
+      inputPrice.setAttribute("value", `${item.price}`);
       listItem.appendChild(inputPrice);
 
       const inputName = document.createElement("input");
-      inputName.setAttribute("type", 'hidden');
-      inputName.setAttribute('name', 'order');
-      inputName.setAttribute('value', `${item.name}`);
+      inputName.setAttribute("type", "hidden");
+      inputName.setAttribute("name", "order");
+      inputName.setAttribute("value", `${item.name}`);
       listItem.appendChild(inputName);
       // Create and append the text content
       const textContent = document.createElement("span");
       textContent.classList.add("name__list");
-      textContent.textContent = `${item.name} - ${item.price * item.quantity} R количество - ${item.quantity}`;
+      textContent.textContent = `${item.name} - ${
+        item.price * item.quantity
+      } R количество - ${item.quantity}`;
       /*inputName.setAttribute("value", item.name);
       inputPrice.setAttribute("value", item.price * item.quantity);
       inputOrder.setAttribute("value", item.quantity);*/
@@ -109,13 +109,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         productImage,
         productQuantity
       );
-      orderAdd(
-        productId,
-        productName,
-        productPrice,
-        productQuantity
-      );
-
+      orderAdd(productId, productName, productPrice, productQuantity);
     });
   });
 
@@ -142,77 +136,56 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 
   function sendCartItems() {
-    const cartData = cartItems.map(item => ({
+    const cartData = cartItems.map((item) => ({
       id: item.id,
       name: item.name,
       price: item.price * item.quantity,
       quantity: item.quantity,
     }));
-    console.log(cartData)
+    console.log(cartData);
 
-    fetch('./send.php', {
-      method: 'POST',
+    fetch("./send.php", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(cartData)
+      body: JSON.stringify(cartData),
     })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
       })
       .catch((error) => {
-        console.error('Error:', error);
+        console.error("Error:", error);
       });
   }
-  document.querySelector('.get__offer').addEventListener('submit', () => {
+  document.querySelector(".get__offer").addEventListener("submit", () => {
     sendCartItems();
   });
 });
-
 
 // search +add to cart
 
 const products = [];
 
-document.querySelectorAll('.cat1__product').forEach(product => {
-    const id = product.getAttribute('data-product-id');
-    const name = product.querySelector('.desc__name').innerText.trim();
-    const description = product.querySelector('.desc__text').innerText.trim().split('\n')[0];
-    const priceText = product.querySelector('.cost__with__weight').innerText.trim();
-    const price = parseInt(priceText.replace(/\D/g, ''), 10); // Extract numeric value from price text
-    const image = product.querySelector('.product__image').getAttribute('src'); // Extract image source
+document.querySelectorAll(".cat1__product").forEach((product) => {
+  const id = product.getAttribute("data-product-id");
+  const name = product.querySelector(".desc__name").innerText.trim();
+  const description = product
+    .querySelector(".desc__text")
+    .innerText.trim()
+    .split("\n")[0];
+  const priceText = product
+    .querySelector(".cost__with__weight")
+    .innerText.trim();
+  const price = parseInt(priceText.replace(/\D/g, ""), 10); // Extract numeric value from price text
+  const image = product.querySelector(".product__image").getAttribute("src"); // Extract image source
 
-    products.push({ id: parseInt(id, 10), name, description, price, image });
+  products.push({ id: parseInt(id, 10), name, description, price, image });
 });
 
-const inputData = document.querySelector('.input-data');
+const inputData = document.querySelector(".input-data");
 
-/*function orderAdd(productId, productName, productPrice, productQuantity) {
-  orderArr.push({
-    id: productId,
-    name: productName,
-    price: productPrice * productQuantity,
-    count: productQuantity,
-  });
-  dataToInput(orderArr, inputData);
-  return orderArr;
-}
-
-
-console.log(orderArr);
-function dataToInput(data, input) {
-  let result = ""
-  if(Array.isArray(data)) {
-    data.forEach(d => {
-      const str = JSON.stringify(d);
-      result += str;
-      input.value = result;
-    })
-  }
-  console.log(result);
-  return result;
-}*/
 function orderAdd(productId, productName, productPrice, productQuantity) {
   orderArr.push({
     id: productId,
@@ -225,29 +198,22 @@ function orderAdd(productId, productName, productPrice, productQuantity) {
   return orderArr;
 }
 
-var discount = 0;
-const promoCodeInput = document.querySelector('input[name="promokod"]');
-function applyPromoCode() {
-  const promoCode = promoCodeInput.value.trim();
-  if (promoCode === "a") {
-    discount = 0.1; // 10% скидка
-  }
-}
-
 function addTotalToOrderArr(orderArr) {
+  const totalIndex = orderArr.findIndex((item) => item.id === "total");
+  if (totalIndex !== -1) {
+    orderArr.splice(totalIndex, 1);
+  }
   const totalSum = orderArr.reduce((total, item) => total + item.summ, 0);
-  const discountedTotalSum = totalSum * (1 - discount);
   orderArr.push({
     id: "total",
     name: "Общая сумма",
     price: totalSum,
     count: 1,
-    СУММА: discountedTotalSum,
+    СУММА: totalSum,
   });
   dataToInput(orderArr, inputData);
   return orderArr;
 }
-
 function dataToInput(data, input) {
   console.log(data, "data");
   let result = "";
@@ -258,6 +224,53 @@ function dataToInput(data, input) {
       input.value = result;
     });
   }
-  console.log(result);
   return result;
+}
+
+document.querySelector(".promo-code-btn").addEventListener("click", (e) => {
+  e.preventDefault();
+  const promoCode = document.querySelector(".promo-code-input").value.trim();
+  applyPromoCode(promoCode);
+});
+
+function applyPromoCode(promoCode) {
+  const promoCodes = [
+    { code: "a", discount: 20 }, // 20% discount
+    { code: "b", discount: 10 }, // 10% discount
+    // Add more promo codes here
+  ];
+
+  const promoCodeFound = promoCodes.find((code) => code.code === promoCode);
+
+  if (promoCodeFound) {
+    const numericItems = orderArr.filter(
+      (item) => typeof item.summ === "number"
+    );
+    const totalSum = numericItems.reduce((total, item) => total + item.summ, 0);
+    const discountAmount = (totalSum / 100) * promoCodeFound.discount;
+    const newTotalSum = totalSum - discountAmount;
+
+    // Remove the existing "total" item from the array
+    const totalIndex = orderArr.findIndex((item) => item.id === "total");
+    if (totalIndex !== -1) {
+      orderArr.splice(totalIndex, 1);
+    }
+
+    // Add a new "total" item with the updated total sum
+    orderArr.push({
+      id: "total",
+      name: "Общая сумма",
+      price: newTotalSum,
+      count: 1,
+      summ: newTotalSum,
+      СУММА: newTotalSum,
+    });
+
+    dataToInput(orderArr, inputData);
+    console.log(
+      ` Promo code applied: ${promoCodeFound.code} - ${promoCodeFound.discount}% discount`
+    );
+  } else {
+    console.log("Invalid promo code");
+  }
 }
