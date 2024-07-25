@@ -32,12 +32,10 @@ if ($_POST['act'] == 'order') {
     $sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
 
     if ($sendToTelegram) {
-        echo($txt);
-        alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
+        header("Location: https://тороторо.рф");
     }
 
     else {
-        echo($txt);
-        alert('Что-то пошло не так. ПОпробуйте отправить форму ещё раз.');
+        header("Location: https://тороторо.рф");
     }
 }

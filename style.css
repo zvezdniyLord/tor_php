@@ -1,4 +1,6 @@
-html, body, ul {
+html,
+body,
+ul {
   scroll-behavior: smooth;
   font-family: "Montserrat", sans-serif;
   margin: 0;
@@ -45,17 +47,14 @@ button {
   transition: transform 0.5s ease;
 }
 
-
 .slide {
-
   flex-shrink: 0;
   text-align: center;
 }
-.slide__img{
+.slide__img {
   width: 1000px;
   height: 600px;
 }
-
 
 .nav-buttons {
   display: flex;
@@ -72,7 +71,7 @@ button {
   border: none;
 }
 
-.footer{
+.footer {
   height: 100px;
 }
 
@@ -121,7 +120,11 @@ button {
 }
 
 .search__product {
-  margin-top: 15px;
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .navpanel {
@@ -146,6 +149,8 @@ button {
   vertical-align: middle;
   flex-direction: column;
   line-height: normal;
+  justify-content: center;
+  align-items: center;
   width: 400px;
   margin-left: 0px;
 }
@@ -205,6 +210,7 @@ button {
 }
 
 .left__contacts {
+  max-height: 120px;
   display: flex;
   vertical-align: middle;
   color: #000;
@@ -221,7 +227,7 @@ button {
 }
 
 .contacts {
-  font-family: 15px Inter, sans-serif;
+  font: 15px Inter, sans-serif;
 }
 
 .contacts__geo {
@@ -292,6 +298,7 @@ button {
 }
 
 .search {
+  border-color:#f8b194;
   margin-top: 10px;
   height: 25px;
   width: 170px;
@@ -376,15 +383,18 @@ button {
   z-index: 9999;
 }
 
-
 #searchResultsContainer {
-  height: 100%;
+  height: 500px;
+
+  border-radius: 25px;
   overflow: auto;
 }
 
 #searchResults {
   background-color: white;
   z-index: 9;
+}
+#searchResults > li {
 }
 
 .product__image__search {
@@ -637,12 +647,12 @@ button {
 .form {
   max-width: 100%;
   display: flex;
-  align-items: center;
   flex-direction: column;
 }
 
 .input-form {
-  max-width: 320px;
+  max-width: 470px;
+  width: 400px;
   height: 55px;
   border-radius: 20px;
   font-size: 1.125rem;
@@ -652,15 +662,22 @@ button {
   margin-top: 1rem;
   cursor: pointer;
 }
-
-.flex-form {
+.search__flex{
   display: flex;
-  margin-left: 2.5em;
+  justify-content: space-between;
+  align-items: center;
+  width: 220px;
 }
 
-
-.popup__disable {}
-
+.close__search {
+  text-align: center;
+  border: none;
+  border-radius: 80px;
+  color: white;
+  background-color: #e31d24;
+  width: 20px;
+  height: 20px;
+}
 /* media*/
 @media (max-width: 991px) {
   .header {
@@ -954,5 +971,4 @@ button {
   .product__image {
     height: 170px;
   }
-
 }
