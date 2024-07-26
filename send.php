@@ -1,8 +1,12 @@
 <?php
 
-$token = "7238360214:AAED9R27wBHgJVnU4nCw4LavUxrZ0L9gubA";
+/*$token = "7405933413:AAHRb-M7T282WvILRR8pkUCzacyxiauaahQ";
 
-$chat_id = "-4288535116";
+$chat_id = "-4288535116";*/
+
+$token = "7405933413:AAHRb-M7T282WvILRR8pkUCzacyxiauaahQ";
+
+$chat_id = "-4273521241";
 
 if ($_POST['act'] == 'order') {
     $product = ($_POST['product']);
